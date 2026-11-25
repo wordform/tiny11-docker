@@ -1,23 +1,31 @@
+
 services:
   windows:
-    image: dockurr/windows
+    image: dockurr/windows:latest
     container_name: tiny11
+
     environment:
       CPU_CORES: "3"
-      RAM_SIZE: "6G"
+      RAM_SIZE: "10G"
       DISK_SIZE: "24G"
       USERNAME: "user"
       PASSWORD: "password"
+
     devices:
       - /dev/kvm
       - /dev/net/tun
+
     cap_add:
       - NET_ADMIN
+
     ports:
       - "8006:8006"
       - "3389:3389/tcp"
       - "3389:3389/udp"
+
     volumes:
-      - ./tiny11.iso:/custom.iso
+      - ./tiny11.iso:/custom.iso:ro
       - ./storage:/storage
+
     stop_grace_period: 2m
+    restart: unless-stopped
