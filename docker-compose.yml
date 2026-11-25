@@ -5,11 +5,13 @@ services:
     container_name: tiny11
 
     environment:
+      VERSION: "https://archive.org/download/tiny-11-NTDEV/tiny11%20b2%28no%20sysreq%29.iso"
       CPU_CORES: "3"
       RAM_SIZE: "10G"
       DISK_SIZE: "24G"
       USERNAME: "user"
       PASSWORD: "password"
+      ATTENDED: "Y"
 
     devices:
       - /dev/kvm
@@ -24,7 +26,6 @@ services:
       - "3389:3389/udp"
 
     volumes:
-      - ./tiny11.iso:/custom.iso:ro
       - ./storage:/storage
 
     stop_grace_period: 2m
