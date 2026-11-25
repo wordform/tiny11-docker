@@ -3,9 +3,9 @@ services:
     image: dockurr/windows
     container_name: tiny11
     environment:
-      CPU_CORES: "1"
-      RAM_SIZE: "4G"
-      DISK_SIZE: "13G"
+      CPU_CORES: "3"
+      RAM_SIZE: "6G"
+      DISK_SIZE: "24G"
       USERNAME: "user"
       PASSWORD: "password"
     devices:
